@@ -12,10 +12,7 @@
                         <div class="col-lg-5 col-md-6">
                             <div class="banner-content">
                                 <h1>Nike New <br>Collection!</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et
-                                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                                </p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
                             </div>
                         </div>
                         <div class="col-lg-7">
@@ -38,32 +35,42 @@
             <div class="col-lg-6 text-center">
                 <div class="section-title">
                     <h1>Latest Products</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.
-                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
             </div>
         </div>
+
         <div class="row">
             <!-- single product -->
-            <div class="col-lg-3 col-md-6">
-                <div class="single-product">
-                    <img class="img-fluid" src="{{ asset('assets/templates/user/img/product/p1.jpg') }}" alt="">
-                    <div class="product-details">
-                        <h6>addidas New Hammer sole for Sports person</h6>
-                        <div class="price">
-                            <h6>$150.00</h6>
-                            <h6 class="l-through">$210.00</h6>
-                        </div>
-                        <div class="prd-bottom">
-                            <a href="" class="social-info">
-                                <span class="ti-bag"></span>
-                                <p class="hover-text">add to bag</p>
-                            </a>
+            @forelse ($products as $item)
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-product">
+                        <img class="img-fluid" src="{{ asset('images/' . $item->images) }}" alt="">
+                        <div class="product-details">
+                            <h6>{{ $item->name }}</h6>
+                            <div class="price">
+                                <h6>{{ $item->price }}</h6>
+                            </div>
+                            <div class="prd-bottom">
+                                <a href="#" class="social-info">
+                                    <span class="ti-bag"></span>
+                                    <p class="hover-text">Beli</p>
+                                </a>
+                                <a href="#" class="social-info">
+                                    <span class="lnr lnr-move"></span>
+                                    <p class="hover-text">Detail</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @empty
+                <div class="col-lg-12 col-md-12">
+                    <div class="single-product">
+                        <h3 class="text-center">Tidak ada produk</h3>
+                    </div>
+                </div>
+            @endforelse
         </div>
     </div>
 </section>
